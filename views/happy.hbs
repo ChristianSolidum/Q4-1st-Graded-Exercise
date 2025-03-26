@@ -40,13 +40,29 @@
     <br>
     Gender: {{gender}}
     <br>
-    Names: 
-    {{number}}
+    Number of close family and friends: {{number}}
+    <br>
+    Number of guests going: {{noSingers}}
+
+        {{#each infos}} 
+        <br> <br>
+          name : {{@key}}
+          <br>
+          going? : {{this}}
+      <br>
+      <br>
+    {{/each}}
+
+    <h2>Song</h2>
+
+    {{#each song}} 
+        <p>{{singer}}: {{word}}</p>
+      {{/each}}
 
   </section>
 
   <footer class="w3-container ">
-    <p> &copy; 2024 CS3 Teachers </p>
+    <p> &copy; 2025 Christian Solidum </p>
   </footer>
 
   
