@@ -8,18 +8,18 @@ const path = require("path");
 
 //Creates our express server
 const app = express();
-const port = 3000;
 
 //Serves static files (we need it to import a css file)
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //Sets a basic route
 
 // Render the initial page with the number input form
 app.get("/", (req, res) => {
-  res.render("index");
+  res.redirect("index"); // Ensure you have index.hbs
 });
 
 // Create express route binder for draw.hbs and get the data from the url as parameters
@@ -27,5 +27,11 @@ app.get("/", (req, res) => {
 
 
 
+app.post("/happy", (req, res) => {
+  const { myName, gender, number } = req.body;
+  res.render('happy', { myName, gender, number }); // Use "names" instead of "name"
+});
+
+
 //Makes the app listen to port 3000
-app.listen(port, () => console.log(`App listening to port ${port}`));
+app.listen(3000, () => console.log(`App listening to port 3000`));

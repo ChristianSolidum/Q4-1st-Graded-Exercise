@@ -7,7 +7,7 @@
   <meta name="author" content="">
   <meta name="description" content=" ">
   <meta name="keywords" content="">
-  <title>Canseco - CS 3 </title>
+  <title>SOLIDUM - CS 3 </title>
   <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- local css property definitions to further enhance the page -->
@@ -24,27 +24,26 @@
   -->
   <div class="w3-bar w3-black">
     <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
-    <a href="/happy" class="w3-bar-item w3-button w3-mobile">Happy</a> 
+   <a href="#" class="w3-bar-item w3-button w3-mobile" onclick="document.getElementById('input_form').submit();">Happy</a>
   </div>
 
 
   <header class="w3-container" id="header" > 
-    <h1>Roy Canseco - III-K - Jan 2025</h1>
+    <h1>Christian Solidum - 9-Mg - March 2025</h1>
     <h2> Birthday </h2>
   </header>
 
   <section class="w3-container" id="input"> 
     <h2>Input</h2>
     <!-- define the form and prevents its default action after it is submitted then call three functions-->
-    <form  id="input_form" method="post" action="/happy" 
+    <form  id="input_form" action="/happy" method="POST"
         onsubmit="return confirm('Sure to Submit')"
-        onreset="return confirm('Sure to Submit')"
-    />
+        onreset="return confirm('Sure to Reset')"/>
 
       <div class="w3-row">
         <div class="w3-third w3-panel w3-card w3-margin">
           <label for="name">Your nickname:</label></br>
-          <input class="w3-input" type="text" id="name" name="name"><br>
+          <input class="w3-input" type="text" id="name" name="myName"><br>
 
           <label for="gender">Gender: </label><br>
           <input class="w3-radio"  type="radio" id="male" name="gender" value="male">
@@ -53,8 +52,9 @@
           <label for="female">Female</label>
         </div>
       
-      <div class="w3-panel w3-third w3-card w3-margin w3-padding"
+      <div class="w3-panel w3-third w3-card w3-margin w3-padding">
       <label for="number"> Number of close family and friends: </label><br>
+
       <select class="w3-select w3-border" id="number" name="number" onchange="generateGuestFields()">
         <option value="">--Please choose a number--</option>
         <!-- sample use of script to generate choices for a drop-down menu that shows numbers from 1 to 16 -->
@@ -68,8 +68,8 @@
       <!-- to submit a form and formatted again using w3.css classess -->
       <!-- clicking on the submit button activates the onsubmit event handler attached to the form tag -->
       <div id="guests">  </div>
-        <input class="w3-button w3-black w3-margin" type="submit" value="Submit">
-         <input class="w3-button w3-black w3-margin" type="reset" value="Submit">
+        <button type="submit" class="w3-button w3-black w3-margin">Submit</button>
+         <input class="w3-button w3-black w3-margin" type="reset" value="Reset">
       </div>
       </div>
       
@@ -86,7 +86,7 @@
     const container = document.getElementById('guests');
     container.innerHTML = 'Enter the name(s) of your invitees: <br>';
 
-    for (let i=0; i<num; i++){
+    for (let i=0; i < num; i++){
       // steps to create the individual input field 
       const input = document.createElement('input');
       input.type = 'text';
@@ -114,5 +114,4 @@
   }
   </script>
 </body>
-
 </html>
