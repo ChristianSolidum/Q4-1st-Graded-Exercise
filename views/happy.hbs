@@ -2,40 +2,52 @@
 <html>
 
 <head>
+  <!-- Character set definition for proper encoding of special characters -->
   <meta charset="utf-8">
+
+  <!-- Ensures the webpage is responsive and scales properly on mobile devices -->
   <meta name="viewport" content="width=device-width", initial-scale=1>
+
+  <!-- Metadata for the document, useful for search engines and browser information -->
   <meta name="author" content="">
   <meta name="description" content=" ">
   <meta name="keywords" content="">
+
+  <!-- Page title shown on the browser tab -->
   <title>SOLIDUM - CS 3 </title>
-  <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
+
+  <!-- Using the w3.css framework for easy responsive and mobile-friendly design -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <!-- local css property definitions to further enhance the page -->
+
+  <!-- Linking a local CSS file to apply additional custom styles -->
   <link href="style.css" rel="stylesheet" type="text/css" />
 
+  <!-- Favicon (icon shown in browser tab) link, currently empty -->
   <link rel="icon" type="image/x-icon" href="">
 </head>
 
-<!--- classes that starts with w3 are defined inside w3.css -->
 <body class="w3-container w3-auto">
+  <!-- Using w3.css container for layout management, 'w3-auto' ensures responsiveness -->
 
-  <!-- do define the navigation bar using classes to define a button styled as a link
-      take note: just a demonsration on how it can be used. Responsive to the size of the viewport
-  -->
+  <!-- Navigation bar using w3.css for styling -->
   <div class="w3-bar w3-black">
+    <!-- Navigation link to homepage using w3-bar-item for alignment and w3-button for clickable styling -->
     <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <!-- Second link using the same styling for demonstration -->
     <a href="#" class="w3-bar-item w3-button w3-mobile">Happy</a> 
   </div>
 
-
-  <header class="w3-container" id="header" > 
+  <!-- Header section displaying the user's name, class, and event information -->
+  <header class="w3-container" id="header"> 
     <h1>Christian Solidum - 9-Mg - March 2025</h1>
     <h2> Birthday </h2>
   </header>
 
+  <!-- Section to display the output with template placeholders (likely using a templating engine like Handlebars) -->
   <section class="w3-container" id="input"> 
     <h2>Output</h2>
-  
+
+    <!-- Dynamic variables using double curly braces for rendering with a templating engine -->
     Name: {{myName}}
     <br>
     Gender: {{gender}}
@@ -44,27 +56,26 @@
     <br>
     Number of guests going: {{noSingers}}
 
-        {{#each infos}} 
-        <br> <br>
-          name : {{@key}}
-          <br>
-          going? : {{this}}
-      <br>
-      <br>
+    <!-- Iterating over an 'infos' object using a Handlebars #each block to display key-value pairs -->
+    {{#each infos}} 
+        <br><br>
+        name : {{@key}}
+        <br>
+        going? : {{this}}
+        <br><br>
     {{/each}}
 
+    <!-- Section to display song lyrics with singer and corresponding word -->
     <h2>Song</h2>
-
     {{#each song}} 
         <p>{{singer}}: {{word}}</p>
-      {{/each}}
-
+    {{/each}}
   </section>
 
-  <footer class="w3-container ">
-    <p> &copy; 2025 Christian Solidum </p>
+  <!-- Footer section with copyright information -->
+  <footer class="w3-container">
+    <p>&copy; 2025 Christian Solidum</p>
   </footer>
-
   
 </body>
 </html>
